@@ -41,11 +41,10 @@ Deve-se desenvolver um programa que:
 Essa parte está garantida para quando se encerrar o período de entregas e o professor enviar a correção do trabalho.
 
 ## Notas
-- Para garantir a funcionalidade do programa, é necessário criar um arquivo de texto chamado ```cursos.txt```, contendo os dados dos cursos no padrão do pdf: 
+- Para garantir a funcionalidade do programa, é necessário criar um arquivo de texto chamado ```cursos.txt```. Esse arquivo pode estar vazio, mas, caso contenha dados, eles devem seguir o seguinte formato: 
 
   ```1234|3.45|2.87|1.98|4.05|2.50|1.34|1.76|2.32|258```
   
   Que pode ser lido como: 
   
   ```codigo|enade|idd|doutores|mestres|regtrabalho|orgdiped|infra|oport|alunos```
- 
