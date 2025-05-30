@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-//DUVIDAS NAS LINHAS 150 E 103
+
 #define MAX 5
 
 typedef struct{
@@ -17,6 +17,7 @@ typedef struct{
 
 int lerArq (Scurso curso[], char nomearq[], int *linhas);
 void calculo (Scurso curso[], int linhas);
+int faixa (float num);
 float indicegeral(int linhas, Scurso curso[]);
 void exibir (int linhas, Scurso curso[]);
 int adicionarTXT (int linhas, Scurso curso[], char nomearq[]);
@@ -110,21 +111,26 @@ void calculo (Scurso curso[], int i){
                         	(curso[i].insumos.infra * 0.05)+
                         	(curso[i].insumos.oport * 0.025);
                         	
-	if(curso[i].cpc_continuo<0.945){
-		curso[i].cpc_faixa=1;
-	} else if(curso[i].cpc_continuo<1.945){
-		curso[i].cpc_faixa=2;
-	} else if(curso[i].cpc_continuo<2.945){
-	     curso[i].cpc_faixa=3;
-	} else if(curso[i].cpc_continuo<3.945){
-		curso[i].cpc_faixa=4;
-	} else{
-		curso[i].cpc_faixa=5;
+	curso[i].cpc_faixa=faixa(curso[i].cpc_continuo);
+}
+
+int faixa (float num){
+	if(num<0.945){
+		return 1;
+	} else if(num<1.945){
+		return 2;
+	} else if(num<2.945){
+	     return 3;
+	} else if(num<3.945){
+		return 4;
+    } else{
+    	return 5;
 	}
 }
 
 void exibir (int linhas, Scurso curso[]){
 	int i, j;
+	float IGC;
 	printf("> CURSOS");
 	for(i=0;i<linhas;i++){
 		printf("\nCURSO %d", i+1);
@@ -144,7 +150,9 @@ void exibir (int linhas, Scurso curso[]){
 		}
 	}
 	
-	printf("\n\n\nIGC: %.2f\n\n", indicegeral(linhas, curso));
+	IGC=indicegeral(linhas, curso);
+	printf("\n\n\nIGC Continuo: %.2f", IGC);
+	printf("\nIGC: %d\n\n", faixa(IGC));
 }
 
 float indicegeral(int linhas, Scurso curso[]){
@@ -157,7 +165,7 @@ float indicegeral(int linhas, Scurso curso[]){
 	if(soma==0 || divisor==0){
 		return 0;
 	} else{
-		return soma/(float)divisor;
+		return soma/divisor;
 	}
 }
 
