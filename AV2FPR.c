@@ -174,7 +174,6 @@ int adicionarTXT (int linhas, Scurso curso[], char nomearq[]){
 	
 	arq=fopen(nomearq, "a");
 	if(!arq){
-		fclose(arq);
 		return -1;
 	}
 	
