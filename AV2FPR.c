@@ -152,7 +152,7 @@ void exibir (int linhas, Scurso curso[]){
 	
 	IGC=indicegeral(linhas, curso);
 	printf("\n\n\nIGC Continuo: %.2f", IGC);
-	printf("\nIGC: %d\n\n", faixa(IGC));
+	printf("\nIGC Faixa: %d\n\n", faixa(IGC));
 }
 
 float indicegeral(int linhas, Scurso curso[]){
@@ -177,7 +177,7 @@ int adicionarTXT (int linhas, Scurso curso[], char nomearq[]){
 		return -1;
 	}
 	
-	fprintf(arq, "%d|%.2f|%.2f|%.2f|%.2f|%.2f|%.2f|%.2f|%.2f|%d\n", curso[linhas].codigo, 
+	fprintf(arq, "\n%d|%.2f|%.2f|%.2f|%.2f|%.2f|%.2f|%.2f|%.2f|%d", curso[linhas].codigo, 
 	                                                                curso[linhas].insumos.enade, 
 	                                                                curso[linhas].insumos.idd, 
                                                                 	curso[linhas].insumos.doutores, 
