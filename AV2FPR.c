@@ -15,13 +15,13 @@ typedef struct{
 	int cpc_faixa;
 }Scurso;
 
-int lerArq (Scurso curso[], char nomearq[], int *linhas);
-void calculo (Scurso curso[], int linhas);
+int lerArq (Scurso curso[MAX], char nomearq[], int *linhas);
+void calculo (Scurso curso[MAX], int linhas);
 int faixa (float num);
-float indicegeral(int linhas, Scurso curso[]);
-void exibir (int linhas, Scurso curso[]);
-int adicionarTXT (int linhas, Scurso curso[], char nomearq[]);
-void adicionar (int *linhas, Scurso curso[], char nomearq[]);
+float indicegeral(int linhas, Scurso curso[MAX]);
+void exibir (int linhas, Scurso curso[MAX]);
+int adicionarTXT (int linhas, Scurso curso[MAX], char nomearq[]);
+void adicionar (int *linhas, Scurso curso[MAX], char nomearq[]);
 
 int main(){
 	Scurso curso[MAX];
@@ -70,12 +70,11 @@ int main(){
 	return 0;
 }
 
-int lerArq (Scurso curso[], char nomearq[], int *linhas){
+int lerArq (Scurso curso[MAX], char nomearq[], int *linhas){
 	FILE *arq;
 	
 	arq=fopen(nomearq, "r");
 	if(!arq){
-		fclose(arq);
 		return -1;
 	}
 	*linhas=0;
@@ -101,7 +100,7 @@ int lerArq (Scurso curso[], char nomearq[], int *linhas){
 	return 1;
 }
 
-void calculo (Scurso curso[], int i){
+void calculo (Scurso curso[MAX], int i){
 	curso[i].cpc_continuo = (curso[i].insumos.enade * 0.2)+
 	                        (curso[i].insumos.idd * 0.35)+
 	                        (curso[i].insumos.doutores * 0.15)+
@@ -128,7 +127,7 @@ int faixa (float num){
 	}
 }
 
-void exibir (int linhas, Scurso curso[]){
+void exibir (int linhas, Scurso curso[MAX]){
 	int i, j;
 	float IGC;
 	printf("> CURSOS");
@@ -155,7 +154,7 @@ void exibir (int linhas, Scurso curso[]){
 	printf("\nIGC Faixa: %d\n\n", faixa(IGC));
 }
 
-float indicegeral(int linhas, Scurso curso[]){
+float indicegeral(int linhas, Scurso curso[MAX]){
 	int i, divisor=0;
 	float soma=0;
 	for(i=0;i<linhas;i++){
@@ -169,7 +168,7 @@ float indicegeral(int linhas, Scurso curso[]){
 	}
 }
 
-int adicionarTXT (int linhas, Scurso curso[], char nomearq[]){
+int adicionarTXT (int linhas, Scurso curso[MAX], char nomearq[]){
 	FILE *arq;
 	
 	arq=fopen(nomearq, "a");
@@ -192,7 +191,7 @@ int adicionarTXT (int linhas, Scurso curso[], char nomearq[]){
 	return 1;
 }
 
-void adicionar (int *linhas, Scurso curso[], char nomearq[]){
+void adicionar (int *linhas, Scurso curso[MAX], char nomearq[]){
 	if(*linhas>=MAX){
 	printf("Quantidade maxima de cursos.");
 	return;	
