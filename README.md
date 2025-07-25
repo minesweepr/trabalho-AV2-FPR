@@ -30,7 +30,7 @@ Deve-se desenvolver um programa que:
 
 ## Informações Gerais
 
-- **Valor total**: 3pts
+- **Valor total**: 10pts, peso 3
 - **Data de entrega**: 15/06/2025
 - **Data de início**: 25/05/2025
 - ![Last Updated](https://img.shields.io/github/last-commit/minesweeper1989/trabalho-AV2-FPR)
