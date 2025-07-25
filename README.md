@@ -36,9 +36,14 @@ Deve-se desenvolver um programa que:
 - ![Last Updated](https://img.shields.io/github/last-commit/minesweeper1989/trabalho-AV2-FPR)
 
 ## Observações Futuras
-- **Nota**: TBA
-- **Feedback**: TBA
-Essa parte está garantida para quando se encerrar o período de entregas e o professor enviar a correção do trabalho.
+- **Nota**: 9
+- **Feedback**: 
+
+     \> Sempre que trabalhar com vetores, opte por passá-los sem o tamanho dentro dos colchetes.
+
+     \> A leitura do arquivo dentro da estrutura de repetição? Ou seja, a todo momento é refeita?!
+     
+     \> A função 'exibir' poderia ser desmembrada em outras, visto que realiza tarefas distintas.
 
 ## Notas
 - Para garantir a funcionalidade do programa, é necessário criar um arquivo de texto chamado ```cursos.txt```. Esse arquivo pode estar vazio, mas, caso contenha dados, eles devem seguir o seguinte formato: 
